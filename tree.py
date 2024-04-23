@@ -54,6 +54,15 @@ class Tree:
             return None
 
     def _find(self, data, node):
+        """Method _find
+        
+        Args:
+            data (int): data to find
+            node (Tree): node to find
+
+        Returns:
+            Node: node with data
+        """
         if data == node.data:
             return node
         elif (data < node.data and node.left is not None):
@@ -62,15 +71,42 @@ class Tree:
             return self._find(data, node.right)
 
     def deleteTree(self):
+        """Method deleteTree
+        
+        Args:
+            data (int): data to find
+            node (Tree): node to find
+
+        Returns:
+            Node: node with data
+        """
         # TODO 1
         self.root = None
 
     def printTree(self):
+        """Method printTree
+        
+        Args:
+            data (int): data to find
+            node (Tree): node to find
+
+        Returns:
+            Node: node with data
+        """
         # TODO 1
         if self.root is not None:
             self._printInorderTree(self.root)
 
     def _printInorderTree(self, node):
+        """Method _printInorderTree
+        
+        Args:
+            data (int): data to find
+            node (Tree): node to find
+
+        Returns:
+            Node: node with data
+        """
         # TODO 1
         if node is not None:
             self._printInorderTree(node.left)
@@ -78,11 +114,37 @@ class Tree:
             self._printInorderTree(node.right)
 
     def _printPreorderTree(self, node):
-        # TODO 2
-        pass
+        """Method _printPreorderTree
+        
+        Args:
+            data (int): data to find
+            node (Tree): node to find
+
+        Returns:
+            Node: node with data
+        """
+        if node is None:
+            return
+        
+        print(str(node.data) + ' ')
+        self._printPreorderTree(node.left)
+        self._printPreorderTree(node.right)
 
     def _printPostorderTree(self, node):
-        # TODO 2
-        pass
+        """Method _printPostorderTree
+        
+        Args:
+            data (int): data to find
+            node (Tree): node to find
+
+        Returns:
+            Node: node with data
+        """
+        if node is None:
+            return
+        
+        self._printPostorderTree(node.left)
+        self._printPostorderTree(node.right)
+        print(str(node.data) + ' ')
 
 
